@@ -7,7 +7,7 @@
     <div>Cheer Ups:
         <ul>
             {{# each user.items}}
-                <span><li>Name: {{name}}</li></span>
+                <span><li>Message: {{name}}</li></span>
                 <span><a href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a></span>
                 <span><a href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a></span>
             {{/ each}}
