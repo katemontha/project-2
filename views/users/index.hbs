@@ -1,21 +1,25 @@
 <div class="jumbotron">
-    <h1>Cheer Ups</h1>
-    <p></p>
-    <p><a class="btn btn-primary btn-sm" href="/users/new" role="button">Create a New User</a></p>
+  <h1>Cheer Ups</h1>
+  <p></p>
+  <a class="btn btn-secondary" href="/users/new" role="button">Create New User</a>
+</div>
+<div class="nav">
+    <a class="nav-link" href="/users">Home</a>
 </div>
 <ul>
     {{# each userList}}
         <li>
-            <div><a href="/users/{{_id}}">ID: {{_id}}</a></div>
-            <div>Created At: {{created_at}}</div>
-            <div>{{first_name}} {{last_name}} "{{email}}"</div>
-            <div>Cheer Ups:
+            <div>
                 <ul>
                     {{# each items}}
-                        <li>Message: {{name}}</li>
+                        <li class="message">"{{name}}"</li>
                     {{/ each}}
                 </ul>
             </div>
+            <br>
+            <div>&mdash;{{first_name}} {{last_name}} "{{email}}"</div>
+            <div>Created At: {{created_at}}</div>
+            <div><a class="show-user" href="/users/{{_id}}">View User</a> <a class="delete" href="/users/delete/{{_id}}" role="button">Delete User</a></div>
         </li>
         <br>
     {{/ each}}

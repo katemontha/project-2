@@ -23,7 +23,7 @@ router.get('/', function (request, response) {
         })
 })
 
-// USER CREATE FORM (NEW)
+// USER CREATE FORM
 router.get('/new', function (request, response) {
 
     // simply render the new user form
@@ -132,7 +132,6 @@ router.put('/:id', function (request, response) {
         });
 
 });
-
 
 // USER DELETE
 router.get('/delete/:id', function (request, response) {

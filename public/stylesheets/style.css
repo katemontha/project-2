@@ -1,12 +1,64 @@
 body {
-  margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.jumbotron {
-  background-image: url("sunflower.jpg");
+
+form {
   padding: 50px;
 }
 
 a {
   color: #00B7FF;
+}
+
+a:hover {
+  color: #00B7FF;
+  text-decoration: underline;
+}
+
+ul {
+  margin-top: 50px;
+  list-style-type: none;
+ }
+
+
+.nav {
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    background-color: #ffe45e;
+    text-align: center;
+    color: white;
+    padding: 15px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.delete {
+  color: #f5989d;
+}
+
+.delete:hover {
+  color: #f5989d;
+  text-decoration: underline;
+}
+
+.message {
+  font-style: italic;
+}
+
+.jumbotron {
+  background-image: url("sunflower.jpg");
+  padding: 50px;
+  color: #444;
+  margin-bottom: 0;
+}
+
+.btn-secondary {
+  background: #ff8954;
+  color: white;
+}
+.btn-secondary:hover {
+  text-decoration: underline;
+  color: white;
 }
