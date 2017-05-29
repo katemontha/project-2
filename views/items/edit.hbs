@@ -1,4 +1,7 @@
-<form method="POST" action="/users/{{userId}}/items/{{itemId}}?_method=PUT">
-    <input type="text" name="name" value="{{itemToEdit.name}}">
-    <input type="submit">
+<form method="POST" action="/users/{{userId}}/items">
+  <div class="form-group">
+    <label>Edit This Cheer Up Message</label>
+    <input type="text" class="form-control" name="name" value="{{itemToEdit.name}}"><br>
+  </div>
+  <input type="submit">
 </form>

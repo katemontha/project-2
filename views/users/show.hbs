@@ -8,9 +8,10 @@
     <div>Cheer Ups:
         <ul class="show">
             {{# each user.items}}
-                <span><li class="message">"{{name}}"</li></span>
-                <span><a class="edit-item" href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a></span>
-                <span><a class="delete" href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a></span>
+                <li class="message">"{{name}}"</li>
+                <div>Created At: {{created_at}}</div>
+                <a class="edit-item" href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a>
+                <a class="delete" href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a>
             {{/ each}}
         </ul>
     </div>

@@ -5,25 +5,25 @@ var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 var ItemSchema = new Schema({
-  name: String
-});
-
-var UserSchema = new Schema({
-  first_name: String,
-  last_name: String,
-  email: { type: String, required: true, unique: true },
+  name: String,
   created_at: Date,
   updated_at: Date,
-  items: [ItemSchema]
 });
 
-UserSchema.pre('save', function(next){
+ItemSchema.pre('save', function(next){
   now = new Date();
   this.updated_at = now;
   if ( !this.created_at ) {
     this.created_at = now;
   }
   next();
+});
+
+var UserSchema = new Schema({
+  first_name: String,
+  last_name: String,
+  email: { type: String, required: true, unique: true },
+  items: [ItemSchema]
 });
 
 
