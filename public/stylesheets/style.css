@@ -1,6 +1,10 @@
 body {
-  padding: 50px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.jumbotron {
+  background-image: url("sunflower.jpg");
+  padding: 50px;
 }
 
 a {

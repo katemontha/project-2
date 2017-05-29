@@ -1,15 +1,14 @@
-<h1>Cheer Ups</h1>
-
+<div class="jumbotron">
+    <h1>Cheer Ups</h1>
+    <p></p>
+    <p><a class="btn btn-primary btn-sm" href="/users/new" role="button">Create a New User</a></p>
+</div>
 <ul>
     {{# each userList}}
         <li>
-            <div><a href="/users/{{_id}}">View User</a></div>
-            <div><a href="/users/delete/{{_id}}">Delete User</a></div>
-            <div>ID: {{_id}}</div>
-            <div>First Name: {{first_name}}</div>
-            <div>Last Name: {{last_name}}</div>
-            <div>Email: {{email}}</div>
+            <div><a href="/users/{{_id}}">ID: {{_id}}</a></div>
             <div>Created At: {{created_at}}</div>
+            <div>{{first_name}} {{last_name}} "{{email}}"</div>
             <div>Cheer Ups:
                 <ul>
                     {{# each items}}
@@ -21,5 +20,3 @@
         <br>
     {{/ each}}
 </ul>
-
-<div><a href="/users/new">Create a New User</a></div>
