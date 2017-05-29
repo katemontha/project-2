@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var methodOverride = require('method-override');
 var app = express();
+var dialogs = require('dialogs')
 
 var methodOverride = require('method-override');
 app.use(methodOverride('_method'));

@@ -1,4 +1,5 @@
 var express = require('express');
+var dialogs = require('dialogs');
 var router = express.Router();
 
 var User = require("../models/user");
@@ -201,7 +202,6 @@ router.post('/:userId/items', function (request, response) {
 
 // REMOVE AN ITEM
 router.get('/:userId/items/:itemId/delete', function (request, response) {
-
     // grab the ID of the User we would like to delete an item for
     var userId = request.params.userId;
 
@@ -210,19 +210,19 @@ router.get('/:userId/items/:itemId/delete', function (request, response) {
 
     // use Mongoose to find the User by its ID and delete the Item
     // that matches our Item ID
-    User.findByIdAndUpdate(userId, {
-        $pull: {
-            items: { _id: itemId }
-        }
-    })
-        .exec(function (err, item) {
-            if (err) {
-                console.log(err);
-                return;
-            }
+      User.findByIdAndUpdate(userId, {
+          $pull: {
+              items: { _id: itemId }
+          }
+      })
+          .exec(function (err, item) {
+              if (err) {
+                  console.log(err);
+                  return;
+              }
 
-            // once we have deleted the item, redirect to the user's show page
-            response.redirect('/users/' + userId);
+              // once we have deleted the item, redirect to the user's show page
+              response.redirect('/users/' + userId);
         })
 });
 

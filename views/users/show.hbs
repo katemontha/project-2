@@ -1,18 +1,21 @@
 <div>
-    <h1>{{user.first_name}} {{user.last_name}}</h1>
+  <ul>
+  <li>
+    <h2>{{user.first_name}} {{user.last_name}} <a class="edit-user" href="/users/edit/{{user.id}}">Edit This User</a></h2>
 
     <div>User {{user.id}}</div>
     <div>Email: {{user.email}}</div>
     <div>Cheer Ups:
-        <ul>
+        <ul class="show">
             {{# each user.items}}
-                <span><li>Message: {{name}}</li></span>
-                <span><a href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a></span>
-                <span><a href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a></span>
+                <span><li class="message">"{{name}}"</li></span>
+                <span><a class="edit-item" href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a></span>
+                <span><a class="delete" href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a></span>
             {{/ each}}
         </ul>
     </div>
-    <div><a href="/users/edit/{{user.id}}">Edit This User</a></div>
+    <br>
     <div><a href="/users/{{user.id}}/items/new">Add a New Item</a></div>
-    <div><a href="/users">Back to Users</a></div>
+  </li>
+</ul>
 </div>
