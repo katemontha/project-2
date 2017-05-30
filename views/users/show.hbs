@@ -1,13 +1,13 @@
 <ul>
   <li class="container">
-    <h2>{{user.first_name}} {{user.last_name}} <a class="edit-user" href="/users/edit/{{user.id}}">Edit This User</a></h2>
+    <h3>{{user.first_name}} {{user.last_name}} <a class="edit-user" href="/users/edit/{{user.id}}">Edit This User</a></h3>
 
     <div>User {{user.id}}</div>
     <div>Email: {{user.email}}</div>
     <div>Cheer Ups:
         <ul class="show">
             {{# each user.items}}
-                <li class="message"><h3>"{{name}}"</h3></li>
+                <li><p class="message">"{{name}}"</p></li>
                 <div>Update At: {{updated_at}}, Created At: {{created_at}}</div>
                 <a class="edit-item" href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a>
                 <a class="delete" href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a><br><br>
