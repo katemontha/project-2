@@ -1,7 +1,7 @@
 Users can create their own ID and post motivational messages. They are also able to edit and delete their info and messages. 
 
 Deployed app: https://quiet-peak-92483.herokuapp.com/<br>
-User stories: https://trello.com/b/UfJXJo46/project-2
+User stories: https://trello.com/b/kEDVrPC2/project-2-cheerups
 
 ## FEATURES
 Creates users<br>
