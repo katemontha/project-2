@@ -1,5 +1,3 @@
-#Cheer Ups
-
 Users can create their own ID and post motivational messages. They are also able to edit and delete their info and messages. 
 
 Deployed app: https://quiet-peak-92483.herokuapp.com/<br>
