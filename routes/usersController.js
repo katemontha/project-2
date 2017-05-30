@@ -52,7 +52,7 @@ router.post('/', function (request, response) {
         }
 
         // once the new user has been saved, redirect to the users index page
-        response.redirect('/users');
+        response.redirect('/');
     });
 
 });

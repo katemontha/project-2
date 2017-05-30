@@ -1,4 +1,5 @@
 body {
+  background-color: #fff6ed;
 }
 
 form {
@@ -16,6 +17,7 @@ a:hover {
 
 ul {
   margin-top: 50px;
+  margin-right: 50px;
   list-style-type: none;
  }
 
@@ -35,16 +37,24 @@ ul {
     padding: 15px;
 }
 
-.home {
+.header {
   color: #444;
 }
 
-.home:hover {
+.header:hover {
   text-decoration: none;
   color: #444;
 }
 
+.nav-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .edit-user {
+  color: gray;
+  text-decoration: underline;
   font-weight: normal;
   font-size: 14px;
 }
@@ -67,7 +77,9 @@ ul {
 }
 
 .jumbotron {
-  background-image: url("sunflower.jpg");
+  background-image:
+    url("sunflower.jpg");
+  background-color: rgba(255, 0, 0, 0.5);
   padding: 50px;
   color: #444;
   margin-bottom: 0;
@@ -77,7 +89,23 @@ ul {
   background: #ff8954;
   color: white;
 }
+
 .btn-secondary:hover {
   text-decoration: underline;
   color: white;
+}
+
+.btn-home {
+  background: #f24d6b;
+  color: white;
+}
+.btn-home:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
 }
