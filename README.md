@@ -16,7 +16,7 @@ Delete message
 Languages - HTML5, CSS3, Javascript, jQuery<br>
 Project Planning and User Stories - Trello<br>
 Text Editor - Atom<br>
-Markdown Editor: MacDown<br>
+Markdown Editor - MacDown<br>
 Designs - Google Fonts, Bootstrap
 
 ## FUTURE DEVELOPMENT:
