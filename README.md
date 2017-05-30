@@ -15,13 +15,17 @@ Delete message
 ## TECHNOLOGIES USED
 Languages - HTML5, CSS3, Javascript, jQuery<br>
 Project Planning and User Stories - Trello<br>
-Text Editor - Atom<br>
+Text Editor - Atom, Sublime<br>
 Markdown Editor - MacDown<br>
-Designs - Google Fonts, Bootstrap
+Designs - Google Fonts, Bootstrap<br>
+App Deployment - Heroku<br>
+Terminal - iTerm
+
 
 ## FUTURE DEVELOPMENT:
 Make it responsive<br>
 Lighten Jumbotron image<br>
+Easier navigation (navbar?)<br>
 Add footer<br>
-Add navbar<br>
-Add confirmation box for delete routes
+Add confirmation box for delete routes<br>
+More CSS to arrange posts<br>
