@@ -76,22 +76,16 @@ router.get('/:id', function (request, response) {
 
 // USER EDIT ROUTE
 router.get('/edit/:id', function (request, response) {
-
-    // grab the ID of the user we want to edit from the parameters
     var userId = request.params.id;
-
-    // then find the user we want to edit in the database, using the ID
     User.findById(userId)
         .exec(function (error, user) {
-
             if (error) {
                 console.log("Error while retrieving user with ID of " + userId);
                 console.log("Error message: " + error);
                 return;
             }
 
-            // once we have found the user, pass the user info to the
-            // user edit form so we can pre-populate the form with existing data
+            // pass user info to edit form
             response.render('users/edit', {
                 user: user
             });
@@ -100,16 +94,10 @@ router.get('/edit/:id', function (request, response) {
 
 // USER UPDATE ROUTE
 router.put('/:id', function (request, response) {
-
-    // grab the ID of the user we want to update from the parameters
     var userId = request.params.id;
-
-    // then grab the edited user info from the form's PUT request
     var newUserInfo = request.body;
 
-    // then find the user in the database, and update its info to
-    // match what was updated in the form
-    // (remember to pass { new: true })
+    // find user and update database with new info from edit form
     User.findByIdAndUpdate(userId, newUserInfo, { new: true })
         .exec(function (error, user) {
 
@@ -118,8 +106,7 @@ router.put('/:id', function (request, response) {
                 return;
             }
 
-            // once we have found the user and updated it, redirect to
-            // that user's show route
+            // redirect to show new info after hitting submit
             response.redirect('/users/' + userId);
 
         });
@@ -128,67 +115,54 @@ router.put('/:id', function (request, response) {
 
 // USER DELETE
 router.get('/delete/:id', function (request, response) {
-
-    // grab the ID of the user we want to delete from the parameters
     var userId = request.params.id;
 
-    // then find and delete the user, using the ID
+    // then find and delete the user by id number
     User.findByIdAndRemove(userId)
         .exec(function (error, user) {
-
             if (error) {
                 console.log("Error while deleting User with ID of " + userId);
                 return;
             }
-
-            // once the user has been deleted, redirect back to the users index
             response.redirect('/users');
 
         });
-
 });
 
 // SHOW NEW ITEM FORM
 router.get('/:userId/items/new', function (request, response) {
-
-    // grab the ID of the user we want to create a new item for
     var userId = request.params.userId;
 
-    // then render the new item form, passing along the user ID to the form
+    // pass user id to rendered new item form
     response.render('items/new', {
         userId: userId
-    })
+    });
 });
 
 // ADD A NEW ITEM
 router.post('/:userId/items', function (request, response) {
-
-    // grab the user ID we want to create a new item for
     var userId = request.params.userId;
 
-    // then grab the new Item that we created using the form
+    // request new item that was created with new item form
     var newItemName = request.body.name;
 
-    // Find the User in the database we want to save the new Item for
+    // find user that the new item was created for
     User.findById(userId)
         .exec(function (err, user) {
 
-            // add a new Item to the User's list of items, using the data
-            // we grabbed off of the form
+            // add new item to list
             user.items.push(new Item({ name: newItemName }));
 
-            // once we have added the new Item to the user's collection
-            // of items, we can save the user
+            // save user info to database
             user.save(function (err) {
                 if (err) {
                     console.log(err);
                     return;
                 }
 
-                // once the user has been saved, we can redirect back
-                // to the User's show page, and we should see the new item
+                // redirect to user show page
                 response.redirect('/users/' + userId);
-            })
+            });
         });
 });
 
