@@ -26,16 +26,6 @@ ul {
    list-style-type: none;
   }
 
-.nav {
-    list-style: none;
-    width: 100%;
-    height: 50px;
-    background-color: #ffe45e;
-    text-align: center;
-    color: white;
-    padding: 15px;
-}
-
 .header {
   color: #444;
 }
@@ -76,9 +66,7 @@ ul {
 }
 
 .jumbotron {
-  background-image:
-    url("sunflower.jpg");
-  background-color: rgba(255, 0, 0, 0.5);
+  background-image: url("sunflower.jpg");
   padding: 50px;
   color: #444;
   margin-bottom: 0;
@@ -107,4 +95,24 @@ ul {
   background-color: white;
   border-radius: 20px;
   padding: 20px;
+}
+
+footer {
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #444;
+    color: white;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.heart {
+  color: #E41138;
+}
+
+.my-name {
+  float: right;
 }
