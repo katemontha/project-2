@@ -168,14 +168,13 @@ router.post('/:userId/items', function (request, response) {
 
 // REMOVE AN ITEM
 router.get('/:userId/items/:itemId/delete', function (request, response) {
-    // grab the ID of the User we would like to delete an item for
+    // id for user the item to be delete belongs to
     var userId = request.params.userId;
 
-    // grab the ID of the Item we would like to delete for the User ID above
+    // id for user item to be deleted
     var itemId = request.params.itemId;
 
-    // use Mongoose to find the User by its ID and delete the Item
-    // that matches our Item ID
+    // delete item by id
       User.findByIdAndUpdate(userId, {
           $pull: {
               items: { _id: itemId }
@@ -187,33 +186,25 @@ router.get('/:userId/items/:itemId/delete', function (request, response) {
                   return;
               }
 
-              // once we have deleted the item, redirect to the user's show page
+              // redirect to the user show page
               response.redirect('/users/' + userId);
         })
 });
 
 // SHOW THE ITEM EDIT FORM
 router.get('/:userId/items/:itemId/edit', function (request, response) {
-
-    // grab the ID of the user whose Item we would like to edit
     var userId = request.params.userId;
-
-    // then grab the ID of the Item we would like to edit for the User above
     var itemId = request.params.itemId;
 
-    // find the User by ID
     User.findById(userId)
         .exec(function (error, user) {
 
-            // once we have found the User, find the Item in its' array
-            // of items that matches the Item ID above
+            //find item to be editted
             var itemToEdit = user.items.find(function (item) {
                 return item.id === itemId;
             })
 
-            // Once we have found the item we would like to edit, render the
-            // Item edit form with all of the information we would like to put
-            // into the form
+            // pass of info to the edit form
             response.render('items/edit', {
                 userId: userId,
                 itemId: itemId,
@@ -226,35 +217,27 @@ router.get('/:userId/items/:itemId/edit', function (request, response) {
 // EDIT AN ITEM
 router.put('/:userId/items/:itemId', function (request, response) {
 
-    // find the ID of the user we would like to edit
+    // user the item belongs to
     var userId = request.params.userId;
 
-    // find the ID of the Item we would like to edit for the User above
+    // item to be editted
     var itemId = request.params.itemId;
 
-    // grab the edited information about the Item from the form
+    // get string from edit item form
     var editedItemFromForm = request.body;
 
-    // find the User by ID
     User.findById(userId)
         .exec(function (error, user) {
-
-            // once we have found the User, find the Item in that user's
-            // collection of Items that matches our Item ID above
             var itemToEdit = user.items.find(function (item) {
                 return item.id === itemId;
             })
 
-            // update the item we would like to edit with the new
-            // information from the form
+            // change item to new string from edit item form
             itemToEdit.name = editedItemFromForm.name;
 
-            // once we have edited the Item, save the user to the database
+            // save user to database
             user.save(function (error, user) {
 
-                // Once we have saved the user with its edited Item, redirect
-                // to the show page for that User. We should see the Item
-                // information updated.
                 response.redirect('/users/' + userId)
             });
 
