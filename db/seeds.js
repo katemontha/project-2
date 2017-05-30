@@ -7,7 +7,7 @@ var Item = require('../models/item');
 // Use native promises
 mongoose.Promise = global.Promise;
 
-// First we clear the database of existing users and items.
+//clear existing users and items from the database
 Item.remove({}, function(err){
   console.log(err);
 });
@@ -23,11 +23,8 @@ var kate = new User({
   item: [{name: "You're my favorite. Cheer up!"}]
 });
 
-
-
 // save the users
 kate.save(function(err) {
   if (err) console.log(err);
-
   console.log('User created!');
 });

@@ -11,7 +11,6 @@ router.get('/', function (request, response) {
     // find all of the users
     User.find({})
         .exec(function (error, userList) {
-
             if (error) {
                 console.log("Error while retrieving users: " + error);
                 return;
@@ -26,25 +25,23 @@ router.get('/', function (request, response) {
 
 // USER CREATE FORM
 router.get('/new', function (request, response) {
-
-    // simply render the new user form
     response.render('users/new');
 });
 
 // USER CREATE ROUTE
 router.post('/', function (request, response) {
 
-    // grab the new user information from the form POST
+    // get info from new user form
     var newUserFromForm = request.body;
 
-    // then create a new User from the User model in your schema
+    // apply to user model from schema
     var user = new User({
         first_name: newUserFromForm.first_name,
         last_name: newUserFromForm.last_name,
         email: newUserFromForm.email
     });
 
-    // then save the new user to the database
+    // save the new user to the database
     user.save(function (err, user) {
         if (err) {
             console.log(err);
@@ -54,31 +51,26 @@ router.post('/', function (request, response) {
         // once the new user has been saved, redirect to the users index page
         response.redirect('/');
     });
-
 });
 
 // USER SHOW ROUTE
 router.get('/:id', function (request, response) {
 
-    // grab the ID of the user we want to show
+    // get selected user id
     var userId = request.params.id;
 
-    // then find the user in the database using the ID
+    // find user in database with id
     User.findById(userId)
         .exec(function (error, user) {
-
             if (error) {
                 console.log("Error while retrieving user with ID of " + userId);
                 console.log("Error message: " + error);
                 return;
             }
-
-            // once we've found the user, pass the user object to Handlebars to render
             response.render('users/show', {
                 user: user
             });
         });
-
 });
 
 
