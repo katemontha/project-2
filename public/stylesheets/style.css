@@ -9,10 +9,16 @@ a:hover {
 
 body {
   background-color: #fff6ed;
+  font-family: 'Open Sans', sans-serif;
 }
 
 form {
   padding: 50px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 ul {
@@ -88,7 +94,9 @@ text-decoration: underline;
 }
 
 .message {
- font-style: italic;
+ font-family: 'Dancing Script', cursive;
+ font-size: 40px;
+ color: #666666;
 }
 
 .my-name {

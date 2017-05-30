@@ -26,7 +26,6 @@ var UserSchema = new Schema({
   items: [ItemSchema]
 });
 
-
 var UserModel = mongoose.model("User", UserSchema);
 var ItemModel = mongoose.model("Item", ItemSchema);
 
