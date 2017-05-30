@@ -26,7 +26,6 @@ ul {
    list-style-type: none;
   }
 
-
 .nav {
     list-style: none;
     width: 100%;
@@ -86,21 +85,21 @@ ul {
 }
 
 .btn-secondary {
-  background: #ff8954;
+  background: #FF9D70;
   color: white;
 }
 
 .btn-secondary:hover {
-  text-decoration: underline;
+  background: #ff8954;
   color: white;
 }
 
 .btn-home {
-  background: #f24d6b;
+  background: #F46781;
   color: white;
 }
 .btn-home:hover {
-  text-decoration: underline;
+  background: #f24d6b;
   color: white;
 }
 
